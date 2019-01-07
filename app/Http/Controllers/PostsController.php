@@ -16,4 +16,12 @@ class PostsController extends Controller
         // return view('posts.index', ['posts' => $posts]); //alt
         return view('posts.index')->with('posts', $posts);
     }
+
+    // public function show($id)
+    public function show(Post $post)
+    {
+        // $post = Post::find($id);
+        // $post = Post::findOrFail($post);
+        return view('posts.show')->with('post', $post);
+    }
 }
