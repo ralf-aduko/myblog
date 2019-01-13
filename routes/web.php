@@ -13,12 +13,15 @@
 
 Route::get('/', 'PostsController@index');
 // Route::get('/post/{id}', 'PostsController@show');
-Route::get('/post/create', 'PostsController@create');
+Route::get('/posts/create', 'PostsController@create');
 
 Route::post('/posts', 'PostsController@store');
 
-Route::patch('/post/{post}', 'PostsController@update');
+Route::patch('/posts/{post}', 'PostsController@update');
+Route::delete('/posts/{post}', 'PostsController@destroy');
+Route::post('/posts/{post}/commnets', 'CommentsController@store');
+Route::delete('/posts/{post}/commnets/{comment}', 'CommentsController@destroy');
 
-Route::get('/post/{post}', 'PostsController@show')->where('post', '[0-9]');
+Route::get('/posts/{post}', 'PostsController@show')->where('post', '[0-9]');
 
-Route::get('/post/{post}/edit', 'PostsController@edit');
+Route::get('/posts/{post}/edit', 'PostsController@edit');
